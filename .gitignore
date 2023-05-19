@@ -4,8 +4,8 @@ node_modules
 .nitro
 .cache
 .output
-.env*
+*.env*
+.vercel
 dist
 .DS_Store
-
 package-lock.json
