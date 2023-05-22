@@ -1,5 +1,5 @@
 <template>
-    <LoginPage/>
+    <NuxtPage/>
 </template>
 
 <script lang="ts" setup>

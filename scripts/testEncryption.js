@@ -1,4 +1,6 @@
 import crypto from 'crypto';
+import { config } from 'dotenv';
+config();
 
 const password = 'myverysecurepassword';
 const salt = 'c94313411b75ee964a4ff078adb3774e';//crypto.randomBytes(16).toString('hex');

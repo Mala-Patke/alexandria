@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config();
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
@@ -7,5 +10,8 @@ export default defineNuxtConfig({
         families: {
             Inter: true
         }
+    },
+    runtimeConfig: {
+        SALT: process.env.SALT,
     }
 });

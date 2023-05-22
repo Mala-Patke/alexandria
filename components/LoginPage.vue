@@ -7,18 +7,29 @@
             <input v-model="email" type="email" placeholder="email"/>
             <input v-model="password" type="password" placeholder="password"/>
             <button class="loginbutton" @click="login">Login</button>
+            <h5>Don't have an account? <NuxtLink to="/signup">Sign up!</NuxtLink></h5>
+            <h5 v-if="error?.length > 0">Error: {{ error }}</h5>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    let email: any;
-    let password: any;
+    import { ref } from 'vue';
+
+    let email: String;
+    let password: String;
+    let error = ref('');
+
+    const updateError = (e : String) => error.value = `${e}`;
+
     function login() {
         console.log(email, password);
         fetch(`/api/auth/login?email=${email}&password=${password}`)
             .then(e => e.json())
-            .then(console.log);
+            .then(res => {
+                if(res.statusCode >= 400) updateError(res.message);
+                console.log(res, error);
+            });
     }
 </script>
 
