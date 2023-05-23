@@ -4,31 +4,31 @@
             <h1>Welcome to Alexandria</h1>
             <p class="descriptor">The number one name in media reviews</p>
             <h2>Log in</h2>
-            <input v-model="email" type="email" placeholder="email"/>
-            <input v-model="password" type="password" placeholder="password"/>
+            <input v-model="email" type="email" placeholder="Email"/>
+            <input v-model="password" type="password" placeholder="Password"/>
             <button class="loginbutton" @click="login">Login</button>
-            <h5>Don't have an account? <NuxtLink to="/signup">Sign up!</NuxtLink></h5>
-            <h5 v-if="error?.length > 0">Error: {{ error }}</h5>
+            <p>Don't have an account? <NuxtLink class="dmlink" to="/signup">Sign up!</NuxtLink></p>
+            <p v-if="error?.length > 0" class="error">Error: {{ error }}</p>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
-
-    let email: String;
-    let password: String;
+    let email: string;
+    let password: string;
     let error = ref('');
 
     const updateError = (e : String) => error.value = `${e}`;
 
     function login() {
         console.log(email, password);
-        fetch(`/api/auth/login?email=${email}&password=${password}`)
+        fetch(`/api/auth/login?${new URLSearchParams({ email, password: password }).toString()}`)
             .then(e => e.json())
             .then(res => {
                 if(res.statusCode >= 400) updateError(res.message);
-                console.log(res, error);
+                let cookie = useCookie('userinfo');
+                cookie.value = JSON.stringify({ id: res.userId , token: res.access_token });
+                navigateTo('/')
             });
     }
 </script>
@@ -75,5 +75,15 @@
 
     .loginbutton {
         margin: 15px;
+    }
+
+    .error {
+        border-radius: 5px;
+        background-color: rgba(255, 0, 0, 0.2);
+        padding: 10px;
+    }
+
+    .dmlink {
+        color: skyblue
     }
 </style>

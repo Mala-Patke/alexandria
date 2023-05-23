@@ -13,6 +13,7 @@ const client = new pg.Client({
 
 client.connect();
 
+/*
 client.query(`CREATE TABLE USERS (
     id uuid PRIMARY KEY,
     email text NOT NULL,
@@ -23,4 +24,5 @@ client.query(`CREATE TABLE USERS (
     token_expires_at timestamp
 );`).then(e => process.exit());
 
-//client.query('SELECT * FROM information_schema.tables;').then(console.log);
+//client.query('SELECT * FROM information_schema.tables;').then(console.log);*/
+client.query(`ALTER TABLE USERS ALTER name TYPE text`);
