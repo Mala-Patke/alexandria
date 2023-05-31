@@ -1,6 +1,6 @@
 <template>
-    <div class="root">
-        <div class="main">
+    <div class="login_root">
+        <div class="login_main">
             <h1>Welcome to Alexandria</h1>
             <p class="descriptor">The number one name in media reviews</p>
             <h2>Log in</h2>
@@ -34,7 +34,7 @@
 </script>
 
 <style>
-    .root {
+    .login_root {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -49,7 +49,7 @@
         padding: 5px;
     }
 
-    .main {
+    .login_main {
         display: flex;
         align-items: center;
         flex-direction: column;

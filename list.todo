@@ -1,0 +1,10 @@
+> Fix media api (api/mdata/...)
+> getreview api (api/reviews/[id].ts) and page ()
+> makereview page (pages/review.vue)
+> getUserICS api (userActions/getICS.ts)
+    > use on home page
+> Friends folder api side
+    > user/friends.ts - list of friends
+    > friends/sendFriendRequest.ts
+    > friends/friendInbox.ts
+    > friends/acceptFriendRequest.ts
