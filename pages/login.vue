@@ -28,7 +28,7 @@
                 if(res.statusCode >= 400) updateError(res.message);
                 let cookie = useCookie('userinfo');
                 cookie.value = JSON.stringify({ id: res.userId , token: res.access_token });
-                navigateTo('/')
+                navigateTo('/home');
             });
     }
 </script>

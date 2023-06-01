@@ -15,12 +15,17 @@ export default defineEventHandler(async e => {
         statusCode: 403, message: "Token has expired. Please log in again."
     }
 
-    let { rows: requests } = await client.query(`
-        SELECT user1 FROM friends WHERE user2 = '${query.id}' AND status = 'R';
-    `);
+    //Check if is valid
+    let { rows: requester } = await client.query(`SELECT user1 FROM friendships WHERE user2 = '${userData[0].id}' AND status = 'R'`);
+    if(!requester.length) return {
+        statusCode: 400,
+        message: 'Cannot find specified friend request'
+    };
+
+    await client.query(`UPDATE friendships SET status = 'A' WHERE user1 = '${requester[0].user1}' AND user2 = '${userData[0].id}';`)
 
     return {
         statusCode: 200,
-        requests
+        message: 'Friend Request Accepted!'
     }
 });

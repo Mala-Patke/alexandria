@@ -1,7 +1,7 @@
 <template>
     <div class="home_main">
         <NavSideBar/>
-        <div class="main">
+        <div class="ics_area3">
             <p>thinger</p>
         </div>
         <div class="infobar">

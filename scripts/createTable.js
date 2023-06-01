@@ -4,6 +4,11 @@ config({
     path: './.env'
 });
 
+/*
+    friendship_status: R(equested), A(ccepted), B(locked),
+    rating: W, L, M(id)
+*/
+
 const client = new pg.Client({
     password: process.env.POSTGRES_PASSWORD,
     host: process.env.POSTGRES_HOST,
@@ -25,4 +30,6 @@ client.query(`CREATE TABLE USERS (
 );`).then(e => process.exit());
 
 //client.query('SELECT * FROM information_schema.tables;').then(console.log);*/
-client.query(`ALTER TABLE USERS ALTER name TYPE text`);
+//client.query(`ALTER TABLE USERS ALTER name TYPE text`);
+client.query(`ALTER TABLE Friendships ALTER time TYPE timestamp`)
+    .then(() => client.end());

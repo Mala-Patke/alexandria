@@ -1,10 +1,17 @@
+BACKEND TODO
 > Fix media api (api/mdata/...)
-> getreview api (api/reviews/[id].ts) and page ()
-> makereview page (pages/review.vue)
+    > show, movie, bookts
+    > Mass request images
+> getreview api (api/reviews/[id].ts) 
+    > Also TODO: Fix all of the token expiries and authorizations.
 > getUserICS api (userActions/getICS.ts)
     > use on home page
 > Friends folder api side
     > user/friends.ts - list of friends
-    > friends/sendFriendRequest.ts
-    > friends/friendInbox.ts
-    > friends/acceptFriendRequest.ts
+
+FRONTEND TODO
+> Finish homepage (pages/home) by adding ICS
+    > Create ICS element (components/homepagepost)
+> Make review page (pages/reviews/create)
+> Make dedicated media info page
+    > 3
