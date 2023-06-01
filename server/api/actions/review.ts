@@ -21,6 +21,7 @@ export default defineEventHandler(async event => {
     let rating = ['W', 'L', 'M'].includes(body.rating) ? body.rating : null;
     let review = body.review?.replaceAll("'", "''");
     let spoilers = ['true', 'false'].includes(body.spoilers) ? body.spoilers : null;
+    let timestamp = `to_timestamp(${Date.now()} / 1000.00)`;
 
     if([media_id, user_id, rating, review, spoilers].map(e => !!e).includes(false)) return {
         statusCode: 400, message: 'Malformed Parameters. Not all required elements were given'
@@ -34,7 +35,8 @@ export default defineEventHandler(async event => {
             '${user_id}',
             '${rating}',
             '${review}',
-            ${spoilers}
+            ${spoilers},
+            ${timestamp}
         );
     `);
 

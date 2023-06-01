@@ -15,7 +15,7 @@ export default defineEventHandler(async e => {
         statusCode: 403, message: "Token has expired. Please log in again."
     }
 
-    let { rows: rawFriendshipData } = await client.query(`SELECT user1,user2 FROM friendships WHERE status = 'A' AND (user1 = '${userData[0].id}' OR user2 = '${userData[0].id}')'`);
+    let { rows: rawFriendshipData } = await client.query(`SELECT user1,user2 FROM friendships WHERE status = 'A' AND (user1 = '${userData[0].id}' OR user2 = '${userData[0].id}')`);
     let friendshipData = rawFriendshipData.map(({user1, user2}) => user1 === userData[0].id ? user2 : user1);
 
     return {
