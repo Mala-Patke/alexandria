@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-    //@ts-ignore
+    //@ts-nocheck file
     let cookie = useCookie('userinfo');
     console.log('cookie value', cookie.value, );
     if(!cookie.value?.id) navigateTo('/login');

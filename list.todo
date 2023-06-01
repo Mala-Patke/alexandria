@@ -3,11 +3,8 @@ BACKEND TODO
     > show, movie, bookts
     > Mass request images
 > getreview api (api/reviews/[id].ts) 
-    > Also TODO: Fix all of the token expiries and authorizations.
 > getUserICS api (userActions/getICS.ts)
     > use on home page
-> Friends folder api side
-    > user/friends.ts - list of friends
 
 FRONTEND TODO
 > Finish homepage (pages/home) by adding ICS

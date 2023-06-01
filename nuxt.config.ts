@@ -5,8 +5,7 @@ config();
 export default defineNuxtConfig({
     pages: true,
     modules: [
-        '@nuxtjs/google-fonts',
-        '@sidebase/nuxt-session'
+        '@nuxtjs/google-fonts'
     ],
     googleFonts: {
         families: {
@@ -15,5 +14,6 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         SALT: process.env.SALT,
+        TMDB_API_KEY: process.env.TMDB_API_KEY
     }
 });
