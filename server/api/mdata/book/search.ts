@@ -18,7 +18,7 @@ export default defineEventHandler(async e => {
             id: `b_${e.id}`,
             type: 'book',
             title: e.volumeInfo.title,
-            author: e.volumeInfo.authors[0],
+            author: e.volumeInfo.authors ? e.volumeInfo.authors[0] : '',
             image: e.volumeInfo.imageLinks?.thumbnail || null
         });
     });

@@ -17,7 +17,7 @@ export default defineEventHandler(async e => {
     data.id = `m_${data.id}`;
     data.image = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
     data.type = 'movie';
-    data.year = e.release_date.split('-')[0];
+    data.year = data.release_date.split('-')[0];
 
     return data;
 });

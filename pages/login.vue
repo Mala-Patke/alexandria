@@ -21,7 +21,6 @@
     const updateError = (e : String) => error.value = `${e}`;
 
     function login() {
-        console.log(email, password);
         fetch(`/api/auth/login?${new URLSearchParams({ email, password: password }).toString()}`)
             .then(e => e.json())
             .then(res => {

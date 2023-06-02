@@ -29,6 +29,6 @@ export default defineEventHandler(async e => {
 
     //Return all of the review objects
     return {
-        statusCode: 200, elements
+        statusCode: 200, elements: elements.reverse()
     };
 });

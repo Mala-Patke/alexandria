@@ -10,7 +10,6 @@ export default defineEventHandler(async event => {
     const config = useRuntimeConfig();
     let query = getQuery(event);
 
-    console.log(query, config);
     if(!query.email || !query.password) return {
         statusCode: 400, message: 'Yo how you tryna log in without an email and password.'
     }
@@ -18,13 +17,11 @@ export default defineEventHandler(async event => {
     let dbRes : QueryResult = await client.query(`SELECT id,password,access_token FROM users WHERE email = '${query.email.replaceAll("'", "''")}';`);
     let userInfo = dbRes.rows[0];
     
-    console.log(`userInfo:`, userInfo);
 
     if(!userInfo) return {
         statusCode: 401, message: "I can't find that email in the database. Maybe you need to sign up."
     }
     
-    console.log(hashPassword(query.password, config.SALT));
     if(hashPassword(query.password, config.SALT) !== userInfo.password) return {
         statusCode: 401, message: 'Password is incorrect'
     }

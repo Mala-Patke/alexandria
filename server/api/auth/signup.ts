@@ -21,7 +21,6 @@ export default defineEventHandler(async event => {
     let tokenexpirydate : Date = new Date(Date.now());
     tokenexpirydate.setDate(tokenexpirydate.getDate() + 3);
 
-    console.log(uuid, query, access_token, tokenexpirydate);
     let dbres = await client.query(`
         INSERT INTO users (id, email, name, password, access_token, token_expires_at)
         VALUES ('${uuid}', '${query.email}', '${query.displayname}', '${query.password}', '${access_token}', to_timestamp(${tokenexpirydate.getTime()} / 1000.00))
