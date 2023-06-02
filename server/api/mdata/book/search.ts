@@ -14,7 +14,12 @@ export default defineEventHandler(async e => {
     
     let data = await res.json();
     return data.items.map(e => {
-        e.id = `b_${e.id}`;
-        return e;
+        return ({
+            id: `b_${e.id}`,
+            type: 'book',
+            title: e.volumeInfo.title,
+            author: e.volumeInfo.authors[0],
+            image: e.volumeInfo.imageLinks?.thumbnail || null
+        });
     });
 });

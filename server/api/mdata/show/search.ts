@@ -18,8 +18,11 @@ export default defineEventHandler(async e => {
     
     let data = await res.json();
     return data.results.map(e => {
-        e.id = `tv_${e.id}`;
-        e.poster_path = `https://image.tmdb.org/t/p/w500${e.poster_path}`
+        e.id = `s_${e.id}`;
+        e.image = `https://image.tmdb.org/t/p/w500${e.poster_path}`;
+        e.title = e.name;
+        e.type = 'show';
+        e.year = e.first_air_date.split('-')[0]
         return e;
     });
 });
