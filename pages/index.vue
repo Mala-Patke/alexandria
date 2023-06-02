@@ -1,3 +1,7 @@
+<template>
+    
+</template>
+
 <script setup lang="ts">
     //@ts-nocheck file
     let cookie = useCookie('userinfo');
