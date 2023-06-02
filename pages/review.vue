@@ -32,13 +32,13 @@
                 <h2>What'd you think of {{ selectedMedia.title }} {{selectedMedia.type === 'book' ? `by ${selectedMedia.author}` : `(${selectedMedia.year})`}}?</h2>
                 <div class="vButtonList">
                     <button class="rateButtonBackground" @click="handleRate('W')">
-                        <img src="w.png">
+                        <img src="/w.png">
                     </button>
                     <button class="rateButtonBackground" @click="handleRate('M')">
-                        <img src="m.png">
+                        <img src="/m.png">
                     </button>
                     <button class="rateButtonBackground" @click="handleRate('L')">
-                        <img src="l.png">
+                        <img src="/l.png">
                     </button>
                 </div>
             </div>

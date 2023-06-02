@@ -1,7 +1,7 @@
 <template>
     <div class="navmain" to="/home">
         <NuxtLink class="logoholder">
-            <img src="logo.png" width="150" height="150">
+            <img src="/logo.png" width="150" height="150">
         </NuxtLink>
         <div class="thebigone">
             <NuxtLink class="thebigbutton" to="/review">REVIEW!</NuxtLink>
